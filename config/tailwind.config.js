@@ -10,8 +10,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        primary: "proxima",
       },
+      colors: {
+        "color-blue": "#3778C2",
+        "color-gray": "#434B54",
+        "color-green": "#5FB523",
+    },
     },
   },
   plugins: [

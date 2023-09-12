@@ -11,3 +11,7 @@
 }
 
 */
+@font-face {
+  font-family: proxima;
+  src: url("../fonts/ProximaNova-Regular.otf") format("opentype");
+}

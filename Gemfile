@@ -79,3 +79,6 @@ gem 'tailwindcss-rails', '~> 2.0'
 gem 'cancancan'
 
 gem 'devise'
+
+gem 'shrine', '~> 3.3'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
