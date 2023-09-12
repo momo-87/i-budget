@@ -1,0 +1,17 @@
+<a href="#" id="<%= group.id %>" class="flex gap-2 items-center w-[95%] md:w-1/2 mx-auto border-gray-200 shadow hover:bg-gray-100 hover:border-2 bg-white h-[75px] px-[8px]">
+  
+  <div class="shadow h-[60px] w-[60px]">
+    <img src="<%= group.icon %>" alt="Group icon" class="w-full h-auto">
+  </div>
+
+  <div class="w-[80%] h-full flex justify-between items-center">
+    <h1 class="md:text-2xl text-color-gray text-xl"><%= group.name %></h1>
+    <div class="">
+      <% total_amount = 0 %>
+      <% group.entities.each do |entity| %>
+        <% total_amount += entity.amount %>
+      <% end %>
+      <span class="font-extrabold"><%= "$#{total_amount}" %></span>
+    </div>
+  </div>
+</a>

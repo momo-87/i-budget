@@ -1,0 +1,20 @@
+<div class="w-full flex flex-col justify-center items-center mx-auto">
+  <div class="w-full flex bg-color-blue h-[50px] text-white px-3 gap-[30%] py-3 md:px-[5%] md:gap-[45%]">
+    <a href="<%= request.referer %>"><i class="fa-solid fa-arrow-left md:text-2xl text-xl"></i></a>
+    <h2>ADD CATEGORY</h2>
+  </div>
+
+  <div class="mx-auto md:w-[60%] w-[98%]">
+    <%= form_with class:'flex flex-col gap-2 w-[100%] mt-5', model: @group, url: { action: "create" }, method: :post do |f| %>
+      <%= f.text_field :name, placeholder: 'Category name' %>
+      <%= f.collection_select :icon, @icons, :url, :url, prompt: 'Select an icon' %>
+      <%= f.submit 'ADD CATEGORY',class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[192px] mx-auto" %>
+      <% if flash[:notice] %>
+          <div class="notice">
+              <%= flash[:notice] %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
