@@ -1,0 +1,29 @@
+<div class="w-full">
+  <div class="w-full flex bg-color-blue h-[50px] text-white px-3 gap-[35%] py-3 md:px-[5%] md:gap-[45%]">
+    <a href="<%= request.referer %>" class="focus:ring-gray-300 focus:ring-2"><i class="fa-solid fa-arrow-left md:text-2xl text-xl"></i></a>
+    <h2>LOGIN</h2>
+  </div>
+  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field md:w-[50%] mx-auto">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "mt-5 w-full h-[50px]" %>
+    </div>
+
+    <div class="field md:w-[50%] mx-auto">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "w-full h-[50px]" %>
+    </div>
+
+    <div class="actions -mt-[165px] ml-[85%] py-2">
+      <%= f.submit "Log In", class: "text-white " %>
+    </div>
+  <% end %>
+    <div class="relative mt-[130px]">
+      <p class="alert text-center text-red-500"><%= alert %></p>
+    </div>
+
+  <div class="mt-[10px] w-full text-center text-gray-500 md:w-[50%] mx-auto">
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %>
+  </div>
+</div>
+
+
