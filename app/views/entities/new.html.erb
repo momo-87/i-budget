@@ -1,0 +1,20 @@
+<div class="w-full flex flex-col justify-center items-center mx-auto">
+  <div class="w-full flex bg-color-blue h-[50px] text-white px-3 gap-[20%] py-3 md:px-[5%] md:gap-[45%] text-xl">
+    <a href="<%= group_path(params[:group_id]) %>"><i class="fa-solid fa-arrow-left md:text-2xl"></i></a>
+    <h2>ADD TRANSACTION</h2>
+  </div>
+
+  <div class="mx-auto md:w-[60%] w-[98%]">
+    <%= form_with class:'flex flex-col gap-2 w-[100%] mt-5', model: @entity, url: group_entities_path(params[:group_id]), method: :post do |f| %>
+      <%= f.text_field :name, placeholder: 'Transaction name' %>
+      <%= f.number_field :amount, placeholder: 'Amount', min: 0 %>
+      <%= f.collection_select :group_ids, current_user.groups.includes(:entities), :id, :name, prompt: 'Select a category' %>
+      <%= f.submit 'Save',class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[192px] mx-auto" %>
+      <% if flash[:notice] %>
+          <div class="notice">
+              <%= flash[:notice] %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
