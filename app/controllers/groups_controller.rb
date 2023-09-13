@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   include ApplicationHelper
 
   def index
-    @groups = Group.includes(:user, :entities).where({ user_id: current_user.id}).order(created_at: :desc)
+    @groups = Group.includes(:user, :entities).where({ user_id: current_user.id }).order(created_at: :desc)
   end
 
   def show
@@ -29,6 +29,7 @@ class GroupsController < ApplicationController
   end
 
   private
+
   def group_params
     params.require(:group).permit(:name, :icon)
   end

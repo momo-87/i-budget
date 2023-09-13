@@ -10,7 +10,7 @@ class EntitiesController < ApplicationController
     p params[:group_ids]
     name = entity_params[:name]
     amount = entity_params[:amount]
-    @entity = Entity.new(author_id: current_user.id, name: name, amount: amount)
+    @entity = Entity.new(author_id: current_user.id, name:, amount:)
     p @entity
     @entity.groups << current_user.groups.includes(:entities).where(id: entity_params[:group_ids])
 
@@ -23,6 +23,7 @@ class EntitiesController < ApplicationController
   end
 
   private
+
   def entity_params
     params.require(:entity).permit(:name, :amount, :group_ids)
   end

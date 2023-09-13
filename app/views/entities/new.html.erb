@@ -1,7 +1,10 @@
 <div class="w-full flex flex-col justify-center items-center mx-auto">
-  <div class="w-full flex bg-color-blue h-[50px] text-white px-3 gap-[20%] py-3 md:px-[5%] md:gap-[45%] text-xl">
-    <a href="<%= group_path(params[:group_id]) %>"><i class="fa-solid fa-arrow-left md:text-2xl"></i></a>
-    <h2>ADD TRANSACTION</h2>
+  <div class="w-full flex bg-color-blue md:h-[50px] h-[100px] text-white px-3 py-3 md:px-[5%] items-center">
+    <a href="<%= groups_path %>"><i class="fa-solid fa-arrow-left md:text-2xl text-xl"></i></a>
+    <h2 class="ml-[20%] md:ml-[45%] w-[200px]">ADD TRANSACTION</h2>
+    <span class = "text-white hover:bg-color-gray rounded-lg text-lg text-center h-[30px] w-[80px] ml-[5%] md:ml-[35%]">
+      <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } if user_signed_in? %>
+    </span>
   </div>
 
   <div class="mx-auto md:w-[60%] w-[98%]">
