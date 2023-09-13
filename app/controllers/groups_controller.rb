@@ -7,6 +7,10 @@ class GroupsController < ApplicationController
     @groups = Group.includes(:user, :entities).where({ user_id: current_user.id}).order(created_at: :desc)
   end
 
+  def show
+    @group_entities = current_user.groups.includes(:entities).find_by(id: params[:id]).entities.order(created_at: :desc)
+  end
+
   def new
     @group = Group.new
     @icons = Icon.all

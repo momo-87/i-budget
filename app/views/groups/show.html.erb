@@ -1,0 +1,23 @@
+<div>
+  <div class=" text-xl w-full flex bg-color-blue h-[50px] text-white px-3 gap-[30%] py-3 md:px-[5%] md:gap-[45%]">
+    
+    <a href="<%= groups_path %>"><i class="fa-solid fa-arrow-left md:text-2xl text-xl"></i></a>
+    <h2>TRANSACTIONS</h2>
+  </div>
+  <div class="w-full bg-white h-[50px] flex justify-between px-5 py-3 text-xl md:block gap-5 md:pl-[80%]">
+    <span class="text-color-gray">Total Amount</span>
+    <% total_amount = 0 %>
+    <% @group_entities.each do |entity| %>
+      <% total_amount += entity.amount %>
+    <% end %>
+    <span class="font-extrabold"><%= "$#{total_amount}" %></span>
+  </div>
+
+  <div class="mt-5">
+    <% @group_entities.each do |entity| %>
+      <span class="block mt-3"><%= render partial: 'shared/transaction_card', locals: {entity: entity} %></span>
+    <% end %>
+  </div>
+    <%= link_to 'Add a new transaction', new_group_path, class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[210px] mx-auto" %>
+</div>
+
