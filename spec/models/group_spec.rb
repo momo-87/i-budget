@@ -1,7 +1,7 @@
 require_relative '../rails_helper'
 
 RSpec.describe Group, type: :model do
-  let(:user) { User.create!(name: 'Christian Momo') }
+  let(:user) { User.create!(name: 'Christian Momo', email: 'mm@recipapp.com', password: '123456') }
   let(:group) { user.groups.create!(name: 'groupe 1', icon: 'group1 icon') }
 
   describe 'validation' do

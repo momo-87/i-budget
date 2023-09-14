@@ -1,7 +1,7 @@
 require_relative '../rails_helper'
 
 RSpec.describe Entity, type: :model do
-  let(:user) { User.create!(name: 'Christian Momo') }
+  let(:user) { User.create!(name: 'Christian Momo', email: 'mm@recipapp.com', password: '123456') }
   let(:entity) { Entity.create!(name: 'entity name', author: user) }
 
   describe 'validation' do
