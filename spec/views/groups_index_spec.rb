@@ -9,11 +9,10 @@ RSpec.describe 'Group', type: :system do
     @group = @user1.groups.create!(name: 'Group name', icon: 'https://placehold.co/200x200')
 
     @entity1 = Entity.create!(author_id: @user1.id, name: 'entity1', amount: 10)
-    @entity2 = Entity.create!(author_id: @user1.id, name: 'entity2', amount:25)
+    @entity2 = Entity.create!(author_id: @user1.id, name: 'entity2', amount: 25)
 
     @group.entities << @entity1
     @group.entities << @entity2
-
   end
 
   it 'displays group informations on the group index page' do
