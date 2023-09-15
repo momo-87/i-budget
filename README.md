@@ -22,7 +22,7 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  <!-- - [Deployment](#triangular_flag_on_post-deployment) -->
+  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -81,18 +81,25 @@ In order to run this project you need:
 - Install ruby gem and depencies on your local system
 - Install Postgresql
 
+### Insall
+- bundle install
+- rails s
+
 ### Setup
 
 Clone this repository to your desired folder:
 > - git clone https://github.com/momo-87/i-budget.git
 > - cd recipe-app
 ### Usage
-- bundle install
-- rails s
+- rails s to run the project locally
+- open the [Live Demo](https://ibudget-wct3.onrender.com/)
 ### Run tests
 Run the following script and style test:
 > - rspec spec
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Deployment
+> The project is already deployed on rende [Live Demo](https://ibudget-wct3.onrender.com/).
 
 ## 👥 Author <a name="authors"></a>
 👤 Christian Romuald MOMO TONFACK
