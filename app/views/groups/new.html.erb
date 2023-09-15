@@ -1,0 +1,22 @@
+<div class="w-full flex flex-col justify-center items-center mx-auto">
+  <div class="w-full flex bg-color-blue md:h-[50px] h-[100px] text-white px-3 py-3 md:px-[5%] items-center">
+    <a href="<%= groups_path %>"><i class="fa-solid fa-arrow-left md:text-2xl text-xl"></i></a>
+    <h2 class="ml-[20%] md:ml-[45%] w-[200px]">ADD CATEGORY</h2>
+    <span class = "text-white hover:bg-color-gray rounded-lg text-lg text-center h-[30px] w-[80px] ml-[5%] md:ml-[35%]">
+      <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } if user_signed_in? %>
+    </span>
+  </div>
+
+  <div class="mx-auto md:w-[60%] w-[98%]">
+    <%= form_with class:'flex flex-col gap-2 w-[100%] mt-5', model: @group, url: { action: "create" }, method: :post do |f| %>
+      <%= f.text_field :name, placeholder: 'Category name' %>
+      <%= f.collection_select :icon, @icons, :url, :url, prompt: 'Select an icon' %>
+      <%= f.submit 'Save',class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[192px] mx-auto" %>
+      <% if flash[:notice] %>
+          <div class="notice">
+              <%= flash[:notice] %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
