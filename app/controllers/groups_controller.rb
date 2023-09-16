@@ -28,6 +28,16 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    @group = Group.includes(:entities).find(params[:id])
+
+    if @group.destroy
+      redirect_to group_path
+    else
+      redirect_to groups_path
+    end
+  end
+
   private
 
   def group_params
