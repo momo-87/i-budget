@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @icons = Icon.all
+    @icons = Icon.all.order(category: :asc)
   end
 
   def create
@@ -29,10 +29,10 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    @group = Group.includes(:entities).find(params[:id])
+    @group = current_user.groups.includes(:entities).find_by(id: params[:id])
 
     if @group.destroy
-      redirect_to group_path
+      redirect_to groups_path
     else
       redirect_to groups_path
     end

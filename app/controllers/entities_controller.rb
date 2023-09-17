@@ -3,7 +3,7 @@ class EntitiesController < ApplicationController
 
   def new
     @entity = Entity.new
-    @groups = current_user.groups.includes(:entities)
+    @groups = current_user.groups.includes(:entities).order(name: :asc)
   end
 
   def create
@@ -16,6 +16,16 @@ class EntitiesController < ApplicationController
       redirect_to group_path(entity_params[:group_ids])
     else
       redirect_to new_group_entity_path(params[:group_ids]), notice: 'Transaction could not be created'
+    end
+  end
+
+  def destroy
+    @entity = current_user.entities.includes(:groups).find_by(id: params[:id])
+
+    if @entity.destroy
+      redirect_to group_path(params[:id])
+    else
+      redirect_to group_path(params[:id])
     end
   end
 
