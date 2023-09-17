@@ -5,7 +5,7 @@
       <img src="<%= group.icon %>" alt="Group icon" class="w-full h-full">
     </div>
 
-    <div class="w-[80%] h-full flex justify-between items-center">
+    <div class="w-[93%] h-full flex justify-between items-center">
       <h1 class="md:text-2xl text-color-gray text-xl"><%= group.name %></h1>
       <div>
         <% total_amount = 0 %>
@@ -16,9 +16,7 @@
       </div>
     </div>
   </a>
-  <span class="flex mr-3 items-center bg-color-gray text-white px-2 hover:bg-color-green ">
     <% if can? :destroy, group %>
-      <%= link_to 'Delete', group_path(group.id), data: { "turbo-method": :delete } %>
+      <%= link_to 'Delete', group_path(group.id), class: "flex mr-3 items-center bg-color-gray text-white px-2 hover:bg-color-green"  , data: { "turbo-method": :delete } %>
     <% end %>
-  </span>
 </div>
