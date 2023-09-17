@@ -31,11 +31,7 @@ class GroupsController < ApplicationController
   def destroy
     @group = current_user.groups.includes(:entities).find_by(id: params[:id])
 
-    if @group.destroy
-      redirect_to groups_path
-    else
-      redirect_to groups_path
-    end
+    redirect_to groups_path
   end
 
   private

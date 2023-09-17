@@ -22,11 +22,7 @@ class EntitiesController < ApplicationController
   def destroy
     @entity = current_user.entities.includes(:groups).find_by(id: params[:id])
 
-    if @entity.destroy
-      redirect_to group_path(params[:id])
-    else
-      redirect_to group_path(params[:id])
-    end
+    redirect_to group_path(params[:id])
   end
 
   private
