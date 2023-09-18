@@ -1,0 +1,22 @@
+<div class="flex md:w-[70%] mx-auto w-full">
+  <a href="<%= group_path(group.id) %>" id="<%= group.id %>" class="flex gap-2 items-center w-[90%] md:w-[88%] mx-auto border-gray-200 shadow hover:bg-gray-100 hover:border-2 bg-white h-[75px] px-[8px]">
+  
+    <div class="shadow h-[60px] w-[60px]">
+      <img src="<%= group.icon %>" alt="Group icon" class="w-full h-full">
+    </div>
+
+    <div class="w-[93%] h-full flex justify-between items-center">
+      <h1 class="md:text-2xl text-color-gray text-xl"><%= group.name %></h1>
+      <div>
+        <% total_amount = 0 %>
+        <% group.entities.each do |entity| %>
+          <% total_amount += entity.amount %>
+        <% end %>
+        <span class="font-extrabold"><%= "$#{total_amount}" %></span>
+      </div>
+    </div>
+  </a>
+    <% if can? :destroy, group %>
+      <%= link_to 'Delete', group_path(group.id), class: "flex mr-3 items-center bg-color-gray text-white px-2 hover:bg-color-green"  , data: { "turbo-method": :delete } %>
+    <% end %>
+</div>
