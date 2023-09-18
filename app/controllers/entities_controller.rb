@@ -25,7 +25,7 @@ class EntitiesController < ApplicationController
     if @entity.destroy
       redirect_to group_path(params[:id])
     else
-      redirect_to group_path(params[:id])
+      redirect_to group_path(params[:id]), notice: 'Transaction could not be deleted'
     end
   end
 
