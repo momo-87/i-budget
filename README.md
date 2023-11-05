@@ -6,7 +6,7 @@
   <h2><b>i-budget</b></h2>
 </div>
 <div align="center">
-  <img src="./screenshot.png" alt="screenshot"/>
+  <img src="./card7.png" alt="screenshot"/>
 </div>
 
 # 📗 Table of Contents
