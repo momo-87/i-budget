@@ -13,7 +13,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @icons = Icon.all
+    @icons = Icon.all.order(category: :asc)
   end
 
   def create
@@ -25,6 +25,16 @@ class GroupsController < ApplicationController
       redirect_to groups_path
     else
       render :new
+    end
+  end
+
+  def destroy
+    @group = current_user.groups.includes(:entities).find_by(id: params[:id])
+
+    if @group.destroy
+      redirect_to groups_path
+    else
+      redirect_to groups_path, notice: 'Group could not be deleted.'
     end
   end
 
