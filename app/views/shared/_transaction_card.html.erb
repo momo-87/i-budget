@@ -1,0 +1,11 @@
+<div class="flex md:w-[70%] mx-auto w-full">
+  <a href="#" id="<%= entity.id %>" class="flex items-center w-[95%] md:w-[88%] mx-auto border-gray-200 shadow hover:bg-gray-100 hover:border-2 bg-white h-[75px] border">
+    <div class="w-full h-full flex justify-between items-center px-3">
+      <h1 class="text-color-gray text-xl"><%= entity.name %></h1>
+      <span class="font-extrabold"><%= "$#{entity.amount}" %></span>
+    </div>
+  </a>
+    <% if can? :destroy, entity %>
+      <%= link_to 'Remove', group_entity_path(group_id: params[:id], id: entity.id), class: "flex mr-3 items-center bg-color-gray text-white px-2 hover:bg-color-green", data: { "turbo-method": :delete } %>
+    <% end %>
+</div>

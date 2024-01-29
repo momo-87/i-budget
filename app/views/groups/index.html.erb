@@ -1,0 +1,19 @@
+
+<div>
+  <div class="w-full flex bg-color-blue md:h-[50px] h-[100px] text-white px-3 py-3 md:px-[5%] items-center">
+    <i class="fa-solid fa-bars md:text-2xl text-xl"></i>
+    <h2 class="ml-[35%] md:ml-[50%]">HOME</h2>
+    <span class = "text-white hover:bg-color-gray rounded-lg text-lg text-center h-[30px] w-full ml-[22%] md:ml-[35%] whitespace-nowrap">
+      <%= link_to "Log out", destroy_user_session_path, data: { "turbo-method": :delete } if user_signed_in? %>
+    </span>
+  </div>
+  <div class="flex flex-col w-full gap-2 mt-[10px]">
+    <% @groups.each do |group| %>
+      <%= render partial: 'shared/group_card', locals: {group: group} %>
+    <% end %>
+  </div>
+  <%= link_to 'Add a new category', new_group_path, class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[210px] mx-auto" %>
+</div>
+
+
+
