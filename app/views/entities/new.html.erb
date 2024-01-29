@@ -9,7 +9,15 @@
 
   <div class="mx-auto md:w-[60%] w-[98%]">
     <%= form_with class:'flex flex-col gap-2 w-[100%] mt-5', model: @entity, url: group_entities_path(params[:group_id]), method: :post do |f| %>
-      <%= f.text_field :name, placeholder: 'Transaction name' %>
+
+      <!-- If error, display the error message -->
+      <% if @entity.errors.any? %>
+        <div class="text-red-600">
+          <%= @entity.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
+
+      <%= f.text_field :name, placeholder: 'Transaction name', class:'w-full' %>
       <%= f.number_field :amount, placeholder: 'Amount', min: 0 %>
       <%= f.collection_select :group_ids, @groups, :id, :name, prompt: 'Select a category' %>
       <%= f.submit 'Save',class: "text-white bg-color-green hover:bg-color-gray focus:outline-none focus:ring-4 focus:ring-gray-300 text-xl px-3.5 py-2.5 block mt-5 w-[192px] mx-auto" %>
