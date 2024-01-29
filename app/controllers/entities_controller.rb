@@ -15,7 +15,8 @@ class EntitiesController < ApplicationController
     if @entity.save
       redirect_to group_path(entity_params[:group_ids])
     else
-      redirect_to new_group_entity_path(params[:group_ids]), notice: 'Transaction could not be created'
+      @groups = current_user.groups.includes(:entities).order(name: :asc)
+      render :new, status: :unprocessable_entity 
     end
   end
 
