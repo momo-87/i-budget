@@ -19,12 +19,13 @@ class GroupsController < ApplicationController
   def create
     name = group_params[:name]
     icon = group_params[:icon]
-    group = Group.new(user_id: current_user.id, name:, icon:)
+    @group = Group.new(user_id: current_user.id, name: name, icon: icon)
 
-    if group.save
+    if @group.save
       redirect_to groups_path
     else
-      render :new
+      @icons = Icon.all.order(category: :asc)  # Ensure @icons is initialized for the form re-render
+      render :new, status: :unprocessable_entity 
     end
   end
 
