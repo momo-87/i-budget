@@ -87,3 +87,6 @@ gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 # Use for deployment with Kamal
 gem 'thruster'
+
+# Use to read the .env files
+gem 'dotenv-rails'
