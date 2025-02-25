@@ -50,7 +50,7 @@ env:
   clear:
     RAILS_ENV: production
     RACK_ENV: production
-    DB_HOST: ibudget-postgres
+    DB_HOST: ibudget-db
     RAILS_LOG_TO_STDOUT: true
     RAILS_SERVE_STATIC_FILES: true
   secret:
